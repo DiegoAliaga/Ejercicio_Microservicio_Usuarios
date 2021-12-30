@@ -51,8 +51,8 @@ public class UsuarioController {
 	
 	@PutMapping(value="usuario", consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity actualizarUsuario(@RequestBody Usuario usuario) {
-		service.actualizarUsuario(usuario);
-		return ResponseEntity.ok(usuario);
+		Usuario u =service.actualizarUsuario(usuario);
+		return ResponseEntity.ok(u);
 	}
 	
 	@ExceptionHandler(Excepcion.class)

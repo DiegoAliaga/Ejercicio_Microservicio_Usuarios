@@ -14,6 +14,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import cl.dao.UsuarioDao;
+import cl.mapper.Mapper;
 import cl.model.Telefono;
 import cl.model.Usuario;
 import exceptions.Excepcion;
@@ -80,12 +81,15 @@ public class UsuariosServiceImpl implements UsuariosService{
 	}
 
 	@Override
-	public boolean actualizarUsuario(Usuario usuario) {
+	public Usuario actualizarUsuario(Usuario usuario) {
 		if(dao.recuperarUsuario(usuario.getId())!=null) {
-			dao.modificarUsuario(usuario);
-			return true;
+			Usuario u=dao.recuperarUsuario(usuario.getId());
+			Usuario uModify=Mapper.getUpdatedUser(u, usuario);
+			//dao.modificarUsuario(usuario);
+			dao.modificarUsuario(uModify);
+			return u;
 		}
-		return false;
+		return null;
 	}
 
 	@Override

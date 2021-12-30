@@ -8,7 +8,7 @@ public interface UsuariosService {
 
 	Usuario agregarUsuario(Usuario usuario);
 	List<Usuario> recuperarUsuarios();
-	boolean actualizarUsuario(Usuario usuario);
+	Usuario actualizarUsuario(Usuario usuario);
 	boolean eliminarUsuario(String id);
 	Usuario buscarUsuario(String id);
 }
