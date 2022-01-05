@@ -19,4 +19,9 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario,Integer>{
 	@Modifying
 	@Query("Update Usuario set active = false Where id=?1 ")
 	void borrarUsuario(String id);
+	
+	@Transactional
+	@Modifying
+	@Query("Delete from telefono where usuario.id=?1")
+	void borrarTelefono(String id);
 }

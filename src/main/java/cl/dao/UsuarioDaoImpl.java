@@ -51,6 +51,11 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		usuarioJpa.borrarUsuario(id);
 		return "Eliminado";
 	}
+	
+	@Override
+	public void modificarUsuarioTelefono(String id) {
+		usuarioJpa.borrarTelefono(id);
+	}
 
 
 }

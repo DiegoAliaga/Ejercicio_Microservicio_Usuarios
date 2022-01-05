@@ -19,4 +19,6 @@ public interface UsuarioDao {
 	List<Usuario> obtenerUsuarios();
 	
 	String modificarUsuario(Usuario usuario);
+	
+	void modificarUsuarioTelefono(String id);
 }

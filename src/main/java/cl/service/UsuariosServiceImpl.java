@@ -84,6 +84,11 @@ public class UsuariosServiceImpl implements UsuariosService{
 	public Usuario actualizarUsuario(Usuario usuario) {
 		if(dao.recuperarUsuario(usuario.getId())!=null) {
 			Usuario u=dao.recuperarUsuario(usuario.getId());
+			dao.modificarUsuarioTelefono(usuario.getId());
+			List<Telefono> telefonos;
+			/*for(Telefono t:usuario.getTelefonos()) {
+				t.setUsuario(usuario.getId());
+			}*/
 			Usuario uModify=Mapper.getUpdatedUser(u, usuario);
 			//dao.modificarUsuario(usuario);
 			dao.modificarUsuario(uModify);
